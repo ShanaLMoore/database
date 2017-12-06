@@ -89,13 +89,14 @@ int main(void) {
             strsub(buf, workers[i].city, 37, 46);
             strsub(buf, workers[i].state, 48, 49);
             strsub(buf, workers[i].zip, 51, 54);
-            strsub(buf, workers[i].age, 56, 59);
+            //strsub(buf, workers[i].age, 56, 59);
             strsub(buf, workers[i].sex, 61, 61);
-            strsub(buf, workers[i].tenure, 63, 66);
-            strsub(buf, workers[i].salary, 68, 75);
+            //strsub(buf, workers[i].tenure, 63, 66);
+            //strsub(buf, workers[i].salary, 68, 75);
+        
+            printf("%s", buf);
+            fprintf(fpOut,"%s", buf);
         }
-        //fprintf(fpOut, "%s\n %s\n %s\n", workers[i].first, workers[i].initial, workers[i].last);
-
     }
     
 
@@ -140,7 +141,7 @@ int readInfo(Employee workers[]){
     return 0;
 }
 
-void outputInfo( ){
+/* void outputInfo( ){
     
-}
+} */
 
