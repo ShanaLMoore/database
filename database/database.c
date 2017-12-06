@@ -65,9 +65,10 @@ void outputQuery;
 void outputRaises; */
 
 int main(void) {
-    // Declare variables with appropriate data types
+    // Declare & assign variables with appropriate data types
     Employee workers[MAX];
-
+    fpIn = NULL;
+    fpOut = NULL;
     int i = 0;
     char buf[MAX];
     
@@ -78,7 +79,7 @@ int main(void) {
         printf("payfile.txt could not be opened for input.");
         return(1);
     } else {
-        //readInfo(&workers[EMPLOYEE_COUNT]);
+        //readInfo(&workers[MAX]);
         while(!feof(fpIn)){
             fgets(buf, MAX, fpIn);
             strsub(buf, workers[i].first, 0, 6);
@@ -93,7 +94,6 @@ int main(void) {
             strsub(buf, workers[i].tenure, 63, 66);
             strsub(buf, workers[i].salary, 68, 75);
         }
-        puts(buf);
         //fprintf(fpOut, "%s\n %s\n %s\n", workers[i].first, workers[i].initial, workers[i].last);
 
     }
@@ -108,28 +108,6 @@ int main(void) {
     return 0;
 }
 
-int readInfo(Employee workers[]){
-    // Read file into an array of structs
-   /* while(!feof(fpIn)){
-        fgets(buf, MAX, fpIn);
-        strsub(buf, workers[i].first, 0, 6);
-        strsub(buf, workers[i].initial, 8, 8);
-        strsub(buf, workers[i].last, 10, 18);
-        
-    } */
-    
-    /* while(!feof(fpIn)){
-        fscanf(fpIn, "%[^\t]",  &workers[i].first,
-                                &workers[i].initial,
-                                &workers[i].last);
-        i++;
-    }
-    for (i=0; i< 3; ++i){
-        printf("%s %s %s", workers[i].first, workers[i].initial, workers[i].last);
-    } */
-    return 0;
-}
-
 // fx to grab substring, sub, from a string, buf, given the start and end index within the string
 void strsub(char buf[], char sub[], int start, int end){
     int i, j;
@@ -138,5 +116,31 @@ void strsub(char buf[], char sub[], int start, int end){
         sub[j] = buf[i];
     }
     sub[j] = '\0';
+}
+
+int readInfo(Employee workers[]){
+    // Read file into an array of structs
+    /* while(!feof(fpIn)){
+     fgets(buf, MAX, fpIn);
+     strsub(buf, workers[i].first, 0, 6);
+     strsub(buf, workers[i].initial, 8, 8);
+     strsub(buf, workers[i].last, 10, 18);
+     
+     } */
+    
+    /* while(!feof(fpIn)){
+     fscanf(fpIn, "%[^\t]",  &workers[i].first,
+     &workers[i].initial,
+     &workers[i].last);
+     i++;
+     }
+     for (i=0; i< 3; ++i){
+     printf("%s %s %s", workers[i].first, workers[i].initial, workers[i].last);
+     } */
+    return 0;
+}
+
+void outputInfo( ){
+    
 }
 
