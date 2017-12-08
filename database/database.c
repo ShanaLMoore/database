@@ -9,13 +9,17 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Declare constants
+#define MAX 100
 
 // Declare file pointers
 FILE *fpIn;
 FILE *fpOut;
 
-#define MAX 100
-
+// structure definition
 typedef struct {
     char first[7];
     char initial[1];
@@ -31,18 +35,15 @@ typedef struct {
 } Employee;
 
 
-// Declare function prototypes
-int main(void);
+// function prototypes
+int readInfo(Employee workers[]);
+void outputInfo(Employee workers[], int i);
 
 // parse input data
-void strsub(char buf[], char sub[], int start, int end);
+//void strsub(char buf[], char sub[], int start, int end);
 
-// read file
-/* int readInfo(Employee workers[]);
- 
-// output struct
-void outputInfo;
- 
+
+/*
 // output firt and last name of all men
 void outputMen;
  
@@ -67,81 +68,50 @@ void outputRaises; */
 int main(void) {
     // Declare & assign variables with appropriate data types
     Employee workers[MAX];
-    fpIn = NULL;
-    fpOut = NULL;
     int i = 0;
-    char buf[MAX];
+    
+    i = readInfo(workers);
+    outputInfo(workers, i);
+    
+    return 0;
+}
+
+int readInfo (Employee workers[]){
+    FILE *fpIn;
+    char *inputName = "payfile.txt";
+    int i = 0;
+    char mystring[MAX];
+    char * pch;
+
     
     // Open files
-    fpOut = fopen("csis.txt", "w");
-
-    if (!(fpIn = fopen("payfile.txt", "r"))){
-        printf("payfile.txt could not be opened for input.");
-        return(1);
+    fpIn = fopen(inputName, "r");
+    
+    if(fpIn == NULL){
+        printf("File cannot be opened\n");
     } else {
-        //readInfo(&workers[MAX]);
-        while(!feof(fpIn)){
-            fgets(buf, MAX, fpIn);
-            strsub(buf, workers[i].first, 0, 6);
-            strsub(buf, workers[i].initial, 8, 8);
-            strsub(buf, workers[i].last, 10, 18);
-            strsub(buf, workers[i].street, 20, 35);
-            strsub(buf, workers[i].city, 37, 46);
-            strsub(buf, workers[i].state, 48, 49);
-            strsub(buf, workers[i].zip, 51, 54);
-            //strsub(buf, workers[i].age, 56, 59);
-            strsub(buf, workers[i].sex, 61, 61);
-            //strsub(buf, workers[i].tenure, 63, 66);
-            //strsub(buf, workers[i].salary, 68, 75);
-        
-            printf("%s", buf);
-            fprintf(fpOut,"%s", buf);
+        while ( fgets (mystring , 100 , fpIn) != NULL )
+            puts (mystring);
+        pch = strtok (mystring, "\t");
+        while (pch != NULL)
+        {
+            //handle each token here and insert into struct
+            pch = strtok (NULL, "\t");
         }
+        fclose (fpIn);
     }
-    
-
-    // Perform functions
-    
-    // Close files
-    fclose(fpIn);
-    fclose(fpOut);
-
     return 0;
 }
 
-// fx to grab substring, sub, from a string, buf, given the start and end index within the string
-void strsub(char buf[], char sub[], int start, int end){
-    int i, j;
+void outputInfo(Employee workers[], int i){
+    FILE *fpOut;
+    char *outputName = "csis.txt";
+    int j;
     
-    for(j=0, i=start; i<=end; i++, j++){
-        sub[j] = buf[i];
-    }
-    sub[j] = '\0';
+    fpOut = fopen(outputName, "w");
+    
+    /*for(j=0; j<i; j++){
+        printf("%s\t%s\t%s\n", workers[i].first, workers[i].initial, workers[i].last );
+        fprintf(fpOut, "%s\t%s\t%s\n", workers[i].first, workers[i].initial, workers[i].last );
+    } fclose(fpOut); */
 }
-
-int readInfo(Employee workers[]){
-    // Read file into an array of structs
-    /* while(!feof(fpIn)){
-     fgets(buf, MAX, fpIn);
-     strsub(buf, workers[i].first, 0, 6);
-     strsub(buf, workers[i].initial, 8, 8);
-     strsub(buf, workers[i].last, 10, 18);
-     
-     } */
-    
-    /* while(!feof(fpIn)){
-     fscanf(fpIn, "%[^\t]",  &workers[i].first,
-     &workers[i].initial,
-     &workers[i].last);
-     i++;
-     }
-     for (i=0; i< 3; ++i){
-     printf("%s %s %s", workers[i].first, workers[i].initial, workers[i].last);
-     } */
-    return 0;
-}
-
-/* void outputInfo( ){
-    
-} */
-
