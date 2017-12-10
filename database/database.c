@@ -163,12 +163,12 @@ void saveDatabase(FILE * fpOut, int employeeCount, Employee* workers) {
     printf("=== SECTION A: %d WORKERS IMPORTED ===\n", employeeCount);
     fprintf(fpOut,"=== SECTION A: %d WORKERS IMPORTED ===\n", employeeCount);
 
-    printf("\n\n=== SECTION B: ALL WORKERS ===\n\n");
-    fprintf(fpOut,"\n\n=== SECTION B: ALL WORKERS ===\n\n");
+    printf("\n\n=== SECTION B: EMPLOYEE DATABASE ===\n\n");
+    fprintf(fpOut,"\n\n=== SECTION B: EMPLOYEE DATABASE ===\n\n");
 
     for(int i = 0; i < employeeCount; ++i) {
-        printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%d\t%s\t%d\t%.2lf\n", workers[i].first, workers[i].initial, workers[i].last, workers[i].street, workers[i].city, workers[i].state, workers[i].zip, workers[i].age, workers[i].sex, workers[i].tenure, workers[i].salary);
-        fprintf(fpOut, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%d\t%s\t%d\t%.2lf\n", workers[i].first, workers[i].initial, workers[i].last, workers[i].street, workers[i].city, workers[i].state, workers[i].zip, workers[i].age, workers[i].sex, workers[i].tenure, workers[i].salary);
+        printf("%s\t%s\t%s\t%s\t%s\t%s\t%s\t%d\t%s\t%d\t$%.2lf\n", workers[i].first, workers[i].initial, workers[i].last, workers[i].street, workers[i].city, workers[i].state, workers[i].zip, workers[i].age, workers[i].sex, workers[i].tenure, workers[i].salary);
+        fprintf(fpOut, "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%d\t%s\t%d\t$%.2lf\n", workers[i].first, workers[i].initial, workers[i].last, workers[i].street, workers[i].city, workers[i].state, workers[i].zip, workers[i].age, workers[i].sex, workers[i].tenure, workers[i].salary);
     }
     return;
 }
@@ -236,8 +236,8 @@ void printLowestPaidMale(FILE * fpOut, int employeeCount, Employee* workers) {
 
 // SECTION F
 void printAverageSalary(FILE * fpOut, int employeeCount, Employee* workers) {
-    printf("\n\n=== SECTION F: AVERAGE SALARY  ===\n\n");
-    fprintf(fpOut, "\n\n=== SECTION F: AVERAGE SALARY ===\n\n");
+    printf("\n\n=== SECTION F: AVERAGE EMPLOYEE SALARY  ===\n\n");
+    fprintf(fpOut, "\n\n=== SECTION F: AVERAGE EMPLOYEE SALARY ===\n\n");
     double sum = 0;
     
     for(int i = 0; i < employeeCount; ++i) {
@@ -251,8 +251,8 @@ void printAverageSalary(FILE * fpOut, int employeeCount, Employee* workers) {
 
 // SECTION G
 void printLessThanAvgFemales(FILE * fpOut, int employeeCount, Employee* workers) {
-    printf("\n\n=== SECTION F: WOMEN EARNING LESS THAN AVG SALARY  ===\n\n");
-    fprintf(fpOut, "\n\n=== SECTION F: WOMEN EARNING LESS THAN AVG SALARY ===\n\n");
+    printf("\n\n=== SECTION F: WOMEN EARNING < AVG SALARY  ===\n\n");
+    fprintf(fpOut, "\n\n=== SECTION F: WOMEN EARNING < AVG SALARY ===\n\n");
     double sum = 0;
     double avgSalary = 0;
     
@@ -305,8 +305,8 @@ void printAvgSalaryMaleRatio(FILE * fpOut, int employeeCount, Employee* workers)
 
 // SECTION I
 void printQuery(FILE * fpOut, int employeeCount, Employee* workers) {
-    printf("\n\n=== SECTION I: EMPLOYEES EARNING OVER $35000/yr, TENURE >= 5yrs, AND AGE > 30  ===\n\n");
-    fprintf(fpOut, "\n\n=== SECTION I: EMPLOYEES EARNING OVER $35000/yr, TENURE <= 5yrs, AND AGE > 30 ===\n\n");
+    printf("\n\n=== SECTION I: EMPLOYEES W/ SALARY > $35000/yr, TENURE >= 5yrs, AND AGE > 30  ===\n\n");
+    fprintf(fpOut, "\n\n=== SECTION I: EMPLOYEES W/ SALARY > $35000/yr, TENURE <= 5yrs, AND AGE > 30 ===\n\n");
    
     for(int i = 0; i < employeeCount; ++i) {
         
@@ -320,16 +320,16 @@ void printQuery(FILE * fpOut, int employeeCount, Employee* workers) {
 
 // SECTION J
 void printRaises(FILE * fpOut, int employeeCount, Employee* workers) {
-    printf("\n\n=== SECTION J: GIVE 10% RAISES TO THOSE EARNING LESS THAN $350/WK AND PRINT NEW SALARY  ===\n\n");
-    fprintf(fpOut, "\n\n=== SECTION J: GIVE 10% RAISES TO THOSE EARNING LESS THAN $350/WK AND PRINT NEW SALARY ===\n\n");
+    printf("\n\n=== SECTION J: GIVE 10 PERCENT RAISES TO THOSE EARNING < $350 ===\n\n");
+    fprintf(fpOut, "\n\n=== SECTION J: GIVE 10 PERCENT RAISES TO THOSE EARNING < $350 ===\n\n");
     
     for(int i = 0; i < employeeCount; ++i) {
         
         if(workers[i].salary < 350){
             workers[i].salary += workers[i].salary * .1;
             
-            printf("%s\t%s\t%.2lf\n", workers[i].first, workers[i].last, workers[i].salary);
-            fprintf(fpOut, "%s\t%s\t%.2lf\n", workers[i].first, workers[i].last, workers[i].salary);
+            printf("%s\t%s\t$%.2lf\n", workers[i].first, workers[i].last, workers[i].salary);
+            fprintf(fpOut, "%s\t%s\t$%.2lf\n", workers[i].first, workers[i].last, workers[i].salary);
         }
     }
     return;
