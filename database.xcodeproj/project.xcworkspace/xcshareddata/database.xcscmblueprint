@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "58535F85B200B13FB6123B55C2F214CAE7EBB32C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "58535F85B200B13FB6123B55C2F214CAE7EBB32C" : 9223372036854775807,
+    "B1F756087712CF0BF0137408D106ADC7B158C8F6" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "18AB4C7B-B499-47D9-A334-FDF6F65AA813",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "58535F85B200B13FB6123B55C2F214CAE7EBB32C" : "database\/",
+    "B1F756087712CF0BF0137408D106ADC7B158C8F6" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "database",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "database.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ShanaLMoore\/database.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "58535F85B200B13FB6123B55C2F214CAE7EBB32C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:ShanaLMoore\/school.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B1F756087712CF0BF0137408D106ADC7B158C8F6"
+    }
+  ]
+}

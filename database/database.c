@@ -251,8 +251,8 @@ void printAverageSalary(FILE * fpOut, int employeeCount, Employee* workers) {
 
 // SECTION G
 void printLessThanAvgFemales(FILE * fpOut, int employeeCount, Employee* workers) {
-    printf("\n\n=== SECTION F: WOMEN EARNING < AVG SALARY  ===\n\n");
-    fprintf(fpOut, "\n\n=== SECTION F: WOMEN EARNING < AVG SALARY ===\n\n");
+    printf("\n\n=== SECTION G: WOMEN EARNING < AVG SALARY  ===\n\n");
+    fprintf(fpOut, "\n\n=== SECTION G: WOMEN EARNING < AVG SALARY ===\n\n");
     double sum = 0;
     double avgSalary = 0;
     
